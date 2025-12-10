@@ -1,0 +1,60 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "llama-index-llms-digitalocean-gradientai"
+version = "0.1.0"
+description = "LlamaIndex integration for DigitalOcean Gradient AI"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+license-files = ["LICENSE"]
+authors = [
+    {name = "Your Name", email = "your.email@example.com"},
+]
+keywords = ["llamaindex", "gradient", "gradientai", "llm", "rag", "digitalocean"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+dependencies = [
+    "llama-index-core>=0.10.0",
+    "gradient>=3.8.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "black>=23.0.0",
+    "mypy>=1.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/yourusername/llama-index-llms-digitalocean-gradientai"
+Documentation = "https://github.com/yourusername/llama-index-llms-digitalocean-gradientai#readme"
+Repository = "https://github.com/yourusername/llama-index-llms-digitalocean-gradientai"
+Issues = "https://github.com/yourusername/llama-index-llms-digitalocean-gradientai/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["llama_index*"]
+
+[tool.black]
+line-length = 100
+target-version = ['py38', 'py39', 'py310', 'py311', 'py312']
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
