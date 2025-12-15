@@ -1,4 +1,4 @@
-"""Base Gradient LLM implementation."""
+"""Base DigitalOcean Gradient AI LLM implementation."""
 
 import json
 import os
@@ -198,7 +198,9 @@ class DigitalOceanGradientAILLM(CustomLLM):
                 yield ChatResponse(message=ChatMessage(role="assistant", content=text), delta=delta)
 
     @llm_completion_callback()
-    async def acomplete(self, prompt: str, formatted: bool = False, **kwargs: Any) -> CompletionResponse:
+    async def acomplete(
+        self, prompt: str, formatted: bool = False, **kwargs: Any
+    ) -> CompletionResponse:
         payload = self._get_request_payload(prompt, **kwargs)
         response = await self._async_client.chat.completions.create(**payload)
         text = response.choices[0].message.content
@@ -236,3 +238,4 @@ class DigitalOceanGradientAILLM(CustomLLM):
             if delta:
                 text += delta
                 yield ChatResponse(message=ChatMessage(role="assistant", content=text), delta=delta)
+

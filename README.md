@@ -23,7 +23,7 @@ pip install -e .
 ### Basic Usage
 
 ```python
-from llama_index.llms.gradient import DigitalOceanGradientAILLM
+from llama_index.llms.digitalocean.gradientai import DigitalOceanGradientAILLM
 
 llm = DigitalOceanGradientAILLM(
     model="meta-llama-3-70b-instruct",
@@ -39,7 +39,7 @@ print(response)
 
 ```python
 import os
-from llama_index.llms.gradient import DigitalOceanGradientAILLM
+from llama_index.llms.digitalocean.gradientai import DigitalOceanGradientAILLM
 
 os.environ["GRADIENT_API_KEY"] = "your-api-key"
 os.environ["GRADIENT_WORKSPACE_ID"] = "your-workspace-id"
@@ -53,7 +53,7 @@ You can also use `GRADIENT_MODEL_ACCESS_KEY` (recommended) in place of `GRADIENT
 
 ```python
 from llama_index.core.llms import ChatMessage
-from llama_index.llms.gradient import DigitalOceanGradientAILLM
+from llama_index.llms.digitalocean.gradientai import DigitalOceanGradientAILLM
 
 llm = DigitalOceanGradientAILLM(
     model="meta-llama-3-70b-instruct",
@@ -73,7 +73,7 @@ print(response.message.content)
 ### Streaming
 
 ```python
-from llama_index.llms.gradient import DigitalOceanGradientAILLM
+from llama_index.llms.digitalocean.gradientai import DigitalOceanGradientAILLM
 
 llm = DigitalOceanGradientAILLM(
     model="meta-llama-3-70b-instruct",
@@ -108,7 +108,7 @@ asyncio.run(main())
 
 ```python
 from llama_index.core import VectorStoreIndex, Document
-from llama_index.llms.gradient import GradientLLM
+from llama_index.llms.digitalocean.gradientai import DigitalOceanGradientAILLM
 
 llm = DigitalOceanGradientAILLM(
     model="meta-llama-3-70b-instruct",
@@ -129,9 +129,10 @@ print(response)
 llama-index-llms-digitalocean-gradientai/
 ├── llama_index/
 │   └── llms/
-│       └── gradient/
-│           ├── __init__.py
-│           └── base.py
+│       └── digitalocean/
+│           └── gradientai/
+│               ├── __init__.py
+│               └── base.py
 ├── setup.py
 ├── pyproject.toml
 ├── README.md

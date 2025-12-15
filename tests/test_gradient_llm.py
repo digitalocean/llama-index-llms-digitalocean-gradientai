@@ -1,11 +1,11 @@
 import os
-
 import pytest
+from dotenv import load_dotenv
 
 from llama_index.core.base.llms.types import ChatMessage
-from llama_index.llms.gradient import DigitalOceanGradientAILLM
+from llama_index.llms.digitalocean.gradientai import DigitalOceanGradientAILLM
 
-
+load_dotenv()
 REQUIRED_ENV = "MODEL_ACCESS_KEY"
 
 
