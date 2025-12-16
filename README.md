@@ -180,24 +180,6 @@ async def main():
 asyncio.run(main())
 ```
 
-### With RAG Pipeline
-
-```python
-from llama_index.core import VectorStoreIndex, Document
-from llama_index.llms.digitalocean.gradientai import DigitalOceanGradientAILLM
-
-llm = DigitalOceanGradientAILLM(
-    model="meta-llama-3-70b-instruct",
-    model_access_key="your-api-key",
-)
-
-documents = [Document(text="DigitalOcean Gradient is a managed LLM API service...")]
-index = VectorStoreIndex.from_documents(documents)
-query_engine = index.as_query_engine(llm=llm)
-response = query_engine.query("What is Gradient?")
-print(response)
-```
-
 ## Package Structure
 
 ```
