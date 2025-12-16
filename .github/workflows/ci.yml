@@ -35,7 +35,7 @@ jobs:
           MODEL_ACCESS_KEY: ${{ secrets.MODEL_ACCESS_KEY }}
           GRADIENT_WORKSPACE_ID: ${{ secrets.GRADIENT_WORKSPACE_ID }}
         run: |
-          pytest tests/ -v --cov=llama_index.llms.gradient --cov-report=xml --cov-report=term
+          pytest tests/ -v --cov=llama_index.llms.digitalocean.gradientai --cov-report=xml --cov-report=term
 
       - name: Upload coverage to Codecov
         if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.11'
