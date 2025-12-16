@@ -52,6 +52,7 @@ Issues = "https://github.com/bnarasimha21/llamaindex-digitalocean-gradientai/iss
 [tool.setuptools.packages.find]
 where = ["."]
 include = ["llama_index*"]
+namespaces = true
 
 [tool.black]
 line-length = 100
