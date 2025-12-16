@@ -22,7 +22,7 @@ llm = GradientAI(
     model_access_key="your-api-key",
 )
 
-response = llm.complete("What is DigitalOcean Gradient?")
+response = llm.complete("What is DigitalOcean Gradient AI Platform?")
 print(response.text)
 ```
 
@@ -52,7 +52,7 @@ print(response.message.content)
 from llama_index.llms.digitalocean.gradientai import GradientAI
 
 llm = GradientAI(
-    model="meta-llama-3-70b-instruct",
+    model="openai-gpt-oss-120b",
     model_access_key="your-api-key",
 )
 
@@ -69,7 +69,7 @@ from llama_index.llms.digitalocean.gradientai import GradientAI
 
 async def main():
     llm = GradientAI(
-        model="meta-llama-3-70b-instruct",
+        model="openai-gpt-oss-120b",
         model_access_key="your-api-key",
     )
     response = await llm.acomplete("What is Gradient?")
