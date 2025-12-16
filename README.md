@@ -20,7 +20,6 @@ from llama_index.llms.digitalocean.gradientai import GradientAI
 llm = GradientAI(
     model="openai-gpt-oss-120b",
     model_access_key="your-api-key",
-    workspace_id="your-workspace-id"  # Optional
 )
 
 response = llm.complete("What is DigitalOcean Gradient?")

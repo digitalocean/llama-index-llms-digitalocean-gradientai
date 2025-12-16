@@ -34,11 +34,9 @@ def _make_llm():
     # Default to a commonly available serverless inference model; override with GRADIENT_MODEL env var.
     model = os.getenv("GRADIENT_MODEL", "openai-gpt-oss-120b")
     api_key = os.environ[REQUIRED_ENV]
-    workspace_id = os.getenv("GRADIENT_WORKSPACE_ID")
     return GradientAI(
         model=model,
         model_access_key=api_key,
-        workspace_id=workspace_id,
         timeout=30,
     )
 

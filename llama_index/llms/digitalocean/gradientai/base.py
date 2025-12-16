@@ -1,7 +1,6 @@
 """Base DigitalOcean Gradient AI LLM implementation."""
 
 import json
-import os
 from typing import TYPE_CHECKING, Any, Dict, List, Optional, Sequence, Union
 
 from llama_index.core.base.llms.types import (
@@ -73,7 +72,6 @@ class GradientAI(FunctionCallingLLM):
 
     model: str
     model_access_key: str
-    workspace_id: Optional[str] = None
     base_url: Optional[str] = None
     temperature: float = 0.7
     max_tokens: Optional[int] = None
@@ -87,7 +85,6 @@ class GradientAI(FunctionCallingLLM):
         self,
         model: str,
         model_access_key: str,
-        workspace_id: Optional[str] = None,
         base_url: Optional[str] = None,
         temperature: float = 0.7,
         max_tokens: Optional[int] = None,
@@ -103,7 +100,6 @@ class GradientAI(FunctionCallingLLM):
         Args:
             model: Model name/identifier.
             model_access_key: API key for authentication (required).
-            workspace_id: Optional workspace ID (can also be set via GRADIENT_WORKSPACE_ID env var).
             base_url: Optional custom API base URL.
             temperature: Sampling temperature (0.0-1.0).
             max_tokens: Maximum tokens to generate.
@@ -116,12 +112,9 @@ class GradientAI(FunctionCallingLLM):
         if not model_access_key:
             raise ValueError("model_access_key is required and must be provided explicitly.")
 
-        workspace_id = workspace_id or os.getenv("GRADIENT_WORKSPACE_ID")
-
         super().__init__(
             model=model,
             model_access_key=model_access_key,
-            workspace_id=workspace_id,
             base_url=base_url,
             temperature=temperature,
             max_tokens=max_tokens,
