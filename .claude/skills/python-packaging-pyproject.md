@@ -53,7 +53,7 @@ build-backend = "setuptools.build_meta"
 ```toml
 [project]
 name = "llama-index-llms-digitalocean-gradientai"
-version = "0.1.1"
+version = "0.1.2"
 description = "LlamaIndex integration for DigitalOcean Gradient AI"
 readme = "README.md"
 requires-python = ">=3.8"

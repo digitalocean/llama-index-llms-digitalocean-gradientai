@@ -109,8 +109,8 @@ class TestSyncClientUserAgent:
         )
 
         # Act - access _client twice
-        client1 = llm._client
-        client2 = llm._client
+        _ = llm._client
+        _ = llm._client
 
         # Assert - Gradient() should be called twice
         assert mock_gradient_class.call_count == 2
@@ -191,8 +191,8 @@ class TestAsyncClientUserAgent:
         )
 
         # Act - access _async_client twice
-        client1 = llm._async_client
-        client2 = llm._async_client
+        _ = llm._async_client
+        _ = llm._async_client
 
         # Assert - AsyncGradient() should be called twice
         assert mock_async_gradient_class.call_count == 2

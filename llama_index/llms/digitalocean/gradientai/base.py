@@ -62,7 +62,7 @@ def _parse_tool_arguments(arguments: Any) -> dict:
         return arguments
     if isinstance(arguments, str):
         try:
-            return parse_partial_json(arguments)
+            return parse_partial_json(arguments)  # type: ignore[no-any-return]
         except (ValueError, TypeError, json.JSONDecodeError):
             return {}
     return {}
@@ -307,7 +307,7 @@ class GradientAI(FunctionCallingLLM):
                 if hasattr(delta, "content"):
                     return delta.content or ""
                 if isinstance(delta, dict):
-                    return delta.get("content", "")
+                    return delta.get("content", "")  # type: ignore[no-any-return]
 
             # Fallback to message (non-streaming format)
             message = getattr(choice, "message", None)
@@ -315,7 +315,7 @@ class GradientAI(FunctionCallingLLM):
                 if hasattr(message, "content"):
                     return message.content or ""
                 if isinstance(message, dict):
-                    return message.get("content", "")
+                    return message.get("content", "")  # type: ignore[no-any-return]
 
             return ""
         except Exception:
