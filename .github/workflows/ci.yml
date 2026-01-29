@@ -5,6 +5,9 @@ on:
     branches: [main, develop]
   pull_request:
     branches: [main, develop]
+  schedule:
+    # Run weekly on Monday at 9am UTC to catch SDK breaking changes
+    - cron: '0 9 * * 1'
 
 jobs:
   test:
@@ -12,7 +15,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest]
-        python-version: ["3.8", "3.9", "3.10", "3.11", "3.12"]
+        python-version: ["3.9", "3.10", "3.11", "3.12"]
       fail-fast: false
 
     steps:
@@ -67,5 +70,3 @@ jobs:
 
       - name: Check package
         run: twine check dist/*
-
-
